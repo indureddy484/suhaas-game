@@ -1,0 +1,199 @@
+/* 🌟 General Layout */
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Arial Rounded MT", sans-serif;
+  background: linear-gradient(135deg, #d0f0fd, #ffe3f5);
+  background-attachment: fixed;
+  animation: backgroundMove 20s linear infinite;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.game-container {
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🧒 Avatar */
+.avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #4caf50;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  background: white;
+}
+
+/* 🟢 Level Text */
+.level-display {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px #b2fab4;
+}
+
+/* 🎞 Video Rows */
+.video-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video-box {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.video-box.selected {
+  transform: scale(1.08);
+}
+
+video {
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧩 Drop Zone */
+.drop-area {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.drop-slot {
+  width: 130px;
+  height: 80px;
+  background: #ffffff;
+  border: 2px dashed #90caf9;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.placeholder {
+  color: #777;
+  font-size: 14px;
+}
+
+/* ✅ Buttons */
+.check-btn,
+.reset-btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  margin: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.check-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.check-btn:hover {
+  background-color: #43a047;
+}
+
+.reset-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
+}
+
+.message {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* 🎇 Confetti Stars (optional if using old stars) */
+.star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.star {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: gold;
+  border-radius: 50%;
+  animation: star-fall 1.2s ease-out forwards;
+  opacity: 0.8;
+}
+
+@keyframes star-fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* 📱 Mobile Optimizations */
+@media (max-width: 600px) {
+  .video-box video,
+  .drop-slot video {
+    width: 100px;
+    height: 60px;
+  }
+
+  .drop-slot {
+    width: 100px;
+    height: 60px;
+  }
+
+  .check-btn,
+  .reset-btn {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .level-display {
+    font-size: 20px;
+  }
+}
